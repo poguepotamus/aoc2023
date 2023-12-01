@@ -37,7 +37,7 @@ class Day1(Solver):
 
 if __name__ == '__main__':
     Solver().report(
-        Path(__file__).parent / 'testInput.txt',
+        Path(__file__).parent / 'testInput',
         Path(__file__).parent / 'input',
-        Path(__file__).parent / 'testInput2.txt'
+        Path(__file__).parent / 'testInput2'
     )
