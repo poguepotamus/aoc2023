@@ -1,4 +1,5 @@
 from pathlib import Path
+from functools import reduce
 
 from Solver import Solver
 
@@ -31,6 +32,23 @@ class Day02(Solver):
 
             possible_games.append(game_num if game_possible else 0)
         return sum(possible_games)
+
+    def solve_part_2(self, puzzle_input:list):
+        total = 0
+        # Iterating through our games (each line)
+        for bag in puzzle_input:
+            # Removing our game iterator from the line. We handle that in code.
+            bag = bag.split(': ')[1]
+
+            game_summary = self.summarize_game(bag)
+
+            # Finding the lowest number for each color in the bag
+            game_summary = {color: max(numbers) for color, numbers in game_summary.items()}
+
+            # Then finding the power of the lowest number for each color
+            total += reduce(lambda x, y: x * y, game_summary.values())
+
+        return total
 
     def iter_pull(self, pull:str) -> (str, int):
         """Parses a pull into a dictionary of color: number"""
