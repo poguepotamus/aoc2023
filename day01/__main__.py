@@ -3,7 +3,7 @@ from re import sub
 
 from Solver import Solver
 
-class Day1(Solver):
+class Day01(Solver):
 
     numbers = {
         'one': '1', 'two': '2', 'three': '3',
@@ -36,7 +36,7 @@ class Day1(Solver):
         return self.solve_part_1(new_input)
 
 if __name__ == '__main__':
-    Solver().report(
+    Day01().report(
         Path(__file__).parent / 'testInput',
         Path(__file__).parent / 'input',
         Path(__file__).parent / 'testInput2'
